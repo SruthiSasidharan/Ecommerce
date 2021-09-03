@@ -8,7 +8,10 @@ class LoginSerializer(serializers.Serializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model=Orders
-        fields=["product","address"]
+        fields="__all__"
+
+    address = serializers.ReadOnlyField(source='Address.address')
+
 
 class CartSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,5 +22,5 @@ class AddToCartSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Items
-        fields = ('id',)
+        fields = ('id','title')
 

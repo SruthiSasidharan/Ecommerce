@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from .views import LoginView,Indexview,cartsView,ProductDetail,RemoveCartview,Addtocart,ViewOrder,CancelOrder
+from .views import LoginView,Indexview,cartsView,ProductDetail,RemoveCartview,Addtocart,ViewOrder,CancelOrder,OrderPro
 
 urlpatterns=[
     path("log",LoginView.as_view(),name="log"),
@@ -11,6 +11,7 @@ urlpatterns=[
     path("ro/<int:pk>",RemoveCartview.as_view(),name="ro"),
     path("ac/<int:id>",Addtocart.as_view(),name="ac"),
     path("vo",ViewOrder.as_view(),name="vo"),
-    path("co/<int:id>",CancelOrder.as_view(),name="co")
+    path("co/<int:id>",CancelOrder.as_view(),name="co"),
+    path("op",OrderPro.as_view(),name="op")
 ]
 

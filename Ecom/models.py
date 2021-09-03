@@ -33,15 +33,16 @@ class Mycart(models.Model):
         return self.product
 
 
+class Address(models.Model):
+    address=models.CharField(max_length=250)
+    pincode=models.IntegerField()
+    phonenumber=models.IntegerField()
+
 class Orders(models.Model):
     product=models.ForeignKey(Items,on_delete=models.CASCADE)
     user=models.CharField(max_length=120)
     date=models.DateField(auto_now=True)
-    address=models.CharField(max_length=200)
-    options=(("ordered","ordered"),
-             ("packed","packed"),
-             ("shipped","shipped"),
-             ("delivered","delivered"),
-             ("cancelled","cancelled"))
-    status=models.CharField(max_length=120,choices=options,default="ordered")
+    # address=models.ForeignKey(Address,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.product
 
