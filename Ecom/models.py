@@ -42,7 +42,7 @@ class Orders(models.Model):
     product=models.ForeignKey(Items,on_delete=models.CASCADE)
     user=models.CharField(max_length=120)
     date=models.DateField(auto_now=True)
-    # address=models.ForeignKey(Address,on_delete=models.CASCADE)
+    address=models.ForeignKey(Address,on_delete=models.CASCADE)
     def __str__(self):
         return self.product
 
